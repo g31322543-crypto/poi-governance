@@ -1,0 +1,26 @@
+# --- secrets & local config (never commit) ---
+.env
+
+# --- runtime data (SQLite) ---
+*.db
+
+# --- model checkpoints (large, regenerable) ---
+laya_poi_finetuned/
+
+# --- python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# --- logs ---
+*.log
+
+# --- tooling / OS ---
+.claude/
+.DS_Store
+Thumbs.db
+
+# --- personal (job-search context, not project code) ---
+岗位JD.md

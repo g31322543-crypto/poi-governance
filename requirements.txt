@@ -1,0 +1,8 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+requests>=2.31
+openai>=1.30
+# Heavy ML/data deps (already installed, not pip-resolved here):
+#   torch, transformers       <- Laya checkpoint
+#   laya (Apache-2.0, git)    <- System 1 decision model
+#   pyarrow, shapely          <- Overture GeoParquet ingestion

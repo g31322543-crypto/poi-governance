@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>POI Governance Chain — Laya + LLM</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">▣</span>
+      <div>
+        <h1>POI Governance Chain</h1>
+        <p class="tagline">System 1 (Laya) content gate &middot; System 2 (LLM) dedup &middot; confidence-gated routing</p>
+      </div>
+    </div>
+    <div class="chips" id="status-chips"><span class="chip"><b>status</b><i>…</i></span></div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Submit a listing</h2>
+        <span class="hint">Runs the full chain: moderate → dedup → route</span>
+      </div>
+      <div class="examples" id="examples"></div>
+      <form id="submit-form" class="grid">
+        <label>Name *<input name="name" required placeholder="e.g. BrewDog Soho"></label>
+        <label>Category<input name="category" placeholder="e.g. bar / restaurant"></label>
+        <label>Address<input name="address" placeholder="e.g. 21 Poland St, London"></label>
+        <label>Phone<input name="phone" placeholder="+44 …"></label>
+        <label>Brand<input name="brand" placeholder="chain brand (optional)"></label>
+        <label class="wide">Description<textarea name="description" rows="3" placeholder="Listing description text"></textarea></label>
+        <label>Latitude<input name="lat" type="number" step="0.000001" placeholder="51.5116"></label>
+        <label>Longitude<input name="lng" type="number" step="0.000001" placeholder="-0.1270"></label>
+        <div class="form-actions">
+          <button type="submit" class="primary" id="submit-btn">Run chain</button>
+          <span class="spinner" id="submit-spinner" hidden></span>
+        </div>
+      </form>
+      <div id="live-result" class="result" hidden></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Persistent store <span class="hint">poi.db (SQLite)</span></h2>
+        <span class="hint">Live submissions are written to disk: new places stored, every decision audited</span>
+      </div>
+      <div class="form-actions">
+        <button class="primary" id="audit-btn">Reload audit log</button>
+        <span class="spinner" id="audit-spinner" hidden></span>
+      </div>
+      <div id="audit-result" class="result" hidden></div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
